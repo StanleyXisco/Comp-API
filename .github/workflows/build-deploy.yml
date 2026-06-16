@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
     job1:
         environment:
-           name: testing and building code
+           name: testing
         env:
             DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
             DATABASE_PORT: ${{secrets.DATABASE_PORT}}
@@ -30,6 +30,7 @@ jobs:
                     --health-interval 10s
                     --health-timeout 5s
                     --health-retries 5
+
 
         runs-on: ubuntu-latest
         steps:
