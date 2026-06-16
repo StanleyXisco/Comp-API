@@ -8,5 +8,17 @@ jobs:
         steps:
             - name: pulling git repository
               uses: actions/checkout@v6
+
             - name: Say hi to user
               run: echo "Hi, ${{ github.actor }}! Welcome to the build and deploy workflow."
+            
+            - name: Install python version 13
+              uses: actions/setup-python@v6
+              with:
+                python-version: '3.13'
+            
+            - name: update pip
+              run: python -m pip install --upgrade pip
+
+            - name: Install all dependencies
+              run: pip install -r requirements.txt
