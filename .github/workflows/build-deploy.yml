@@ -4,15 +4,17 @@ on: [push, pull_request]
 
 jobs:
     job1:
+        environment:
+           name: testing and building code
         env:
-            DATABASE_HOSTNAME: localhost
+            DATABASE_HOSTNAME: ${ { secrets.DATABASE_HOSTNAME } }
             DATABASE_PORT: 5432
-            DATABASE_PASSWORD: chidera123
-            DATABASE_NAME: myfastapi
-            DATABASE_USERNAME: postgres
-            SECRET_KEY: 8006e3b9959a542980d4d1ebfc2e1900bfc33a2ed720ea34155c904b0b4d8ce6
-            ALGORITHM: HS256
-            ACCESS_TOKEN_EXPIRE_MINUTES: 15
+            DATABASE_PASSWORD: ${ { secrets.DATABASE_PASSWORD } }
+            DATABASE_NAME: ${ { secrets.DATABASE_NAME } }
+            DATABASE_USERNAME: ${ { secrets.DATABASE_USERNAME } }
+            SECRET_KEY: ${ { secrets.SECRET_KEY } }
+            ALGORITHM: ${ { secrets.ALGORITHM } }
+            ACCESS_TOKEN_EXPIRE_MINUTES: ${ { secrets.ACCESS_TOKEN_EXPIRE_MINUTES } }
         runs-on: ubuntu-latest
         steps:
             - name: pulling git repository
