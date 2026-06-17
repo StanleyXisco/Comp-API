@@ -87,7 +87,19 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         needs: [Build]
-
+        environment:
+            name: production
         steps:
-            - name: Deploy to production server
-              run: echo "Deploying to production server..."
+            - name: pulling git repository
+              uses: actions/checkout@v6
+            - name: Install Heroku CLI
+              run: |
+                curl https://cli-assets.heroku.com/install.sh | sh
+
+            - name: Deploy to Heroku Server
+              uses: akhileshns/heroku-deploy@v3.15.15
+              with:
+                heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+                heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+                heroku_email: ${{secrets.HEROKU_EMAIL}}
+            
