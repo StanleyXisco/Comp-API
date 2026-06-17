@@ -49,7 +49,8 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to to this comprehensive application. Please add /docs to the current url to see the API documentation."}
+    return {"message": "Welcome to to this comprehensive application. Please add /docs to the current url to see the API documentation, but you will not be able to see the CI/CD pipeline documentation here."
+    "Please check the README.md file for more information on how to access the CI/CD pipeline documentation."}
 
 
 

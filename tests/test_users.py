@@ -9,7 +9,8 @@ from app.config import settings
 def test_root(client):
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "Welcome to my api!!"}
+    assert response.json() == {"message": "Welcome to to this comprehensive application. Please add /docs to the current url to see the API documentation, but you will not be able to see the CI/CD pipeline documentation here."
+    "Please check the README.md file for more information on how to access the CI/CD pipeline documentation."}
 
 
 def test_create_user(client):
