@@ -80,3 +80,8 @@ jobs:
             - name: Image Digest
               run: |
                 echo "Image Digest: ${{steps.docker_build.outputs.digest}}"
+
+
+
+# cache-from: type=local,src=/tmp/.buildx-cache
+# cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
